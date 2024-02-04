@@ -61,7 +61,7 @@ app.post('/login', (req, res) => {
     userData.push({ username, ip });
 
     // Redirect user to index.html
-    res.redirect('/index.html');
+    res.redirect('https://jnpbank.com/index.html');
 });
 
 
