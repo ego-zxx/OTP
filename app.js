@@ -10,17 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 let uniqueOtp; // Declare otp as a global variable
-
-app.post('/sendOTP', (req, res) => {
-    const email = req.body.email;
-    uniqueOtp = req.body.code;
-
-    if (!email) {
-        return res.status(400).send('Email is required');
-    }
-
-    otp = Math.floor(100000 + Math.random() * 900000); // Generate OTP
-
+let email;
+function sendOtpEmail(){
     const transporter = nodemailer.createTransport({
         host: 'smtp.zoho.com',
         port: 465,
@@ -46,6 +37,15 @@ app.post('/sendOTP', (req, res) => {
         console.log('Email sent:', info.response);
         res.status(200).send('OTP sent successfully');
     });
+}
+app.post('/sendOTP', (req, res) => {
+     email = req.body.email;
+     uniqueOtp = req.body.code;
+
+    if (!email) {
+        return res.status(400).send('Email is required');
+    }
+   sendOtpEmail();
 });
 app.use(bodyParser.json());
 
