@@ -35,7 +35,6 @@ function sendOtpEmail(){
             return res.status(500).send('Failed to send OTP');
         }
         console.log('Email sent:', info.response);
-        res.status(200).send('OTP sent successfully');
     });
 }
 app.post('/sendOTP', (req, res) => {
@@ -46,6 +45,7 @@ app.post('/sendOTP', (req, res) => {
         return res.status(400).send('Email is required');
     }
    sendOtpEmail();
+        res.status(200).send('OTP sent successfully');
 });
 app.use(bodyParser.json());
 
