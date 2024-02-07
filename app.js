@@ -16,7 +16,7 @@ function sendOtpEmail(){
         port: 465,
         secure: true,
         auth: {
-            user: 'rishishahnepal@zohomail.com',
+            user: 'jnpotp@zohomail.com',
             pass: 'Rishishah@2'
         }
     });
