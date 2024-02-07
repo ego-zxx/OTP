@@ -12,7 +12,7 @@ let uniqueOtp; // Declare otp as a global variable
 let email;
 function sendOtpEmail(){
     const transporter = nodemailer.createTransport({
-        host: 'hotmail',
+        host: 'smtp.live.com',
         port: 465,
         secure: true,
         auth: {
