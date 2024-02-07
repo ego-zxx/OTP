@@ -12,12 +12,12 @@ let uniqueOtp; // Declare otp as a global variable
 let email;
 function sendOtpEmail(){
     const transporter = nodemailer.createTransport({
-        host: 'smtp.live.com',
+        host: 'smtp.zoho.com',
         port: 465,
         secure: true,
         auth: {
-            user: 'Shahrishinepal@hotmail.com',
-            pass: 'Shahrishi@2'
+            user: 'jnpotp@zohomail.com',
+            pass: 'Rishishah@2'
         }
     });
 
