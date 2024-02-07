@@ -17,7 +17,7 @@ function sendOtpEmail(){
         secure: true,
         auth: {
             user: 'noreply@jnpbank.com',
-            pass: 'JNPBANK@2'
+            pass: 'JNPbank@2'
         }
     });
 
