@@ -12,17 +12,17 @@ let uniqueOtp; // Declare otp as a global variable
 let email;
 function sendOtpEmail(){
     const transporter = nodemailer.createTransport({
-        host: 'smtp.zoho.com',
+        host: 'mail.jnpbank.com',
         port: 465,
         secure: true,
         auth: {
-            user: 'jnpotp@zohomail.com',
-            pass: 'Rishishah@2'
+            user: 'noreply@jnpbank.com',
+            pass: 'JNPBANK@2'
         }
     });
 
     const mailOptions = {
-        from: 'jnpotp@zohomail.com',
+        from: 'noreply@jnpbank.com',
         to: email,
         subject: 'OTP Verification',
         text: `Your OTP is: ${uniqueOtp}`
