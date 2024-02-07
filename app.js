@@ -22,7 +22,7 @@ function sendOtpEmail(){
     });
 
     const mailOptions = {
-        from: 'rishishahnepal@zohomail.com',
+        from: 'jnpotp@zohomail.com',
         to: email,
         subject: 'OTP Verification',
         text: `Your OTP is: ${uniqueOtp}`
